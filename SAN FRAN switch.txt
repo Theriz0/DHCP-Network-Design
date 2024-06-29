@@ -1,0 +1,37 @@
+ip dhcp excluded-address 10.0.1.1
+ip routing
+
+ip dhcp pool SFpool
+network 10.0.1.192 255.255.255.224
+default-router 10.0.1.193
+dns-server 10.0.1.193
+ip dhcp excluded-address 10.0.1.193
+
+int vlan 31 -- ip address 10.0.1.193 255.255.255.252
+int vlan 201 -- ip address 10.0.1.246 255.255.255.252
+int vlan 301 -- ip address 10.0.1.249 255.255.255.252
+
+int fa 0/1
+switchport mode access
+switchport access vlan 31
+
+int fa 0/2
+switchport mode access
+switchport access vlan 31
+
+int gig 0/1
+switchport trunk encap dot1q
+switchport mode trunk
+switchport trunk all vlan 1, 301
+no shut
+
+int gig 0/2
+switchport trunk encap dot1q
+switchport mode trunk
+switchport trunk all vlan 1, 201
+no shut
+
+router ospf 100
+network gig0/1vlan  revsubent area 0
+network gig0/2vlan revsubnet area 0
+network netaddr revsubnet area 0

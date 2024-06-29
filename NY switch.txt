@@ -1,0 +1,32 @@
+ip dhcp excluded-address 10.0.1.1
+ip routing
+
+ip dhcp pool NYpool
+network 10.0.1.0 255.255.255.128
+default-router 10.0.1.1
+dns-server 10.0.1.1
+ip dhcp excluded-address 10.0.1.1
+
+int vlan 11 -- ip address 10.0.1.1.242 255.255.255.252
+int vlan 101 -- ip address 10.0.1.241 255.255.255.252
+int vlan 401 -- ip address 10.0.1.254 255.255.255.252
+
+int fa 0/1
+switchport mode access
+switchport access vlan 11
+no shut
+
+int vlan 21 -- ip address 10.0.1.1.129 255.255.255.252
+int vlan 101 -- ip address 10.0.1.242 255.255.255.252
+int vlan 401 -- ip address 10.0.1.245 255.255.255.252
+
+int fa 0/2
+switchport mode access
+switchport access vlan 21
+no shut
+
+default-router 10.0.1.129
+dns-server 10.0.1.129
+ip dhcp excluded-address 10.0.1.129
+
+

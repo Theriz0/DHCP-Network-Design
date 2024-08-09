@@ -8,7 +8,7 @@ dns-server 10.0.1.1
 ip dhcp excluded-address 10.0.1.1
 
 int vlan 11 
-ip address 10.0.1.1.242 255.255.255.252
+ip address 10.0.1.1 255.255.255.252
 
 int vlan 101 
 ip address 10.0.1.241 255.255.255.252

@@ -7,15 +7,16 @@ default-router 10.0.1.225
 dns-server 10.0.1.225
 ip dhcp excluded-address 10.0.1.225
 
-int vlan 41 -- ip address 10.0.1.225 255.255.255.252
-int vlan 301 -- ip address 10.0.1.250 255.255.255.252
-int vlan 401 -- ip address 10.0.1.253 255.255.255.252
+int vlan 41
+ip address 10.0.1.225 255.255.255.252
 
-int fa 0/1
-switchport mode access
-switchport access vlan 41
+int vlan 301
+ip address 10.0.1.250 255.255.255.252
 
-int fa 0/2
+int vlan 401
+ip address 10.0.1.253 255.255.255.252
+
+int fa 0/1-0/2
 switchport mode access
 switchport access vlan 41
 

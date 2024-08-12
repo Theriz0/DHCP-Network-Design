@@ -33,6 +33,6 @@ switchport trunk all vlan 1, 101
 no shut
 
 router ospf 100
-network gig0/1vlan  revsubent area 0
-network gig0/2vlan revsubnet area 0
-network netaddr revsubnet area 0
+network 10.0.1.128 0.0.0.3 area 0
+network 10.0.1.241 0.0.0.3 area 0
+network 10.0.1.244 0.0.0.3 area 0

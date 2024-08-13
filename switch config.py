@@ -8,6 +8,7 @@ def read_config(config_file):
     except Exception as e:
         print(f"Failed to connect to {config_file}: {e}")
         return None
+        
 if __name__ == "__main__":
     # Dictionary mapping each switch to its configuration file and credentials
     switches = {
@@ -32,6 +33,7 @@ if __name__ == "__main__":
             'password': 'password'                # Replace with the specific password for this switch
         }
     }
+    
     # Load the configuration to the switch
     for switch_name, switch_info in switches.items():
         print(f"Connecting to {switch_name}...")

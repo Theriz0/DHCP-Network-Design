@@ -19,6 +19,7 @@ ip address 10.0.1.245 255.255.255.252
 int fa 0/1-0/2
 switchport mode access
 switchport access vlan 21
+no shut
 
 int gig 0/1
 switchport trunk encap dot1q
